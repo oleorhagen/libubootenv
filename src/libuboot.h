@@ -55,7 +55,7 @@ int libuboot_configure(struct uboot_ctx *ctx,
  * Read and parses variable from a file in the same way as
  * U-Boot does with "env import -t"
  * The file has the format:
- * 	<variable name>=<value>
+ * 	<variable name>(=|:space:)<value>
  * Comments starting with "#" are allowed.
  *
  * @param[in] ctx libuboot context

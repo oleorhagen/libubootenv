@@ -1165,8 +1165,12 @@ int libuboot_load_file(struct uboot_ctx *ctx, const char *filename)
 			continue;
 
 		value = strchr(buf, '=');
-		if (!value)
-			continue;
+		if (!value) {
+			/* Handle the 'key value' case (i.e., no = separator) */
+			value = strchr(buf, ' ');
+			if (!value)
+				continue;
+		}
 
 		*value++ = '\0';
 
